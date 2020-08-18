@@ -2,17 +2,45 @@
   "products": [
     {
       "id": 1,
-      "name": "Laptop HP",
+      "name": "Lorem ipsum",
       "prices": ["1500", "1700", "2000"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
       "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
     },
     {
       "id": 2,
-      "name": "Smaartfon Samsung",
+      "name": "Ut sodales",
       "prices": ["2000", "2200"],
       "description": "Pellentesque nec augue eu nunc viverra imperdiet. Pellentesque ultricies purus.",
       "image": "https://images.morele.net/full/6358353_0_f.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Diam at",
+      "prices": ["1500", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Odio hendrerit",
+      "prices": ["1500", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Fermentum",
+      "prices": ["1500", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Vivamus facilisis lacus",
+      "prices": ["1500", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
     }
   ]
 }

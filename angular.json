@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "scss"
         }
       },
       "root": "",
@@ -119,6 +119,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "products-catalogue"
+    }
+  },
+  "defaultProject": "products-catalogue",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

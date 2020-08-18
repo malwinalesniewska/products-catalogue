@@ -4,7 +4,7 @@ import { ApiManagerService } from '@app/core';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.sass']
+  styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
   products;

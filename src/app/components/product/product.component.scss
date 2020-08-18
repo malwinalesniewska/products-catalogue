@@ -1,4 +1,9 @@
-.product-image {
-    width: 100px; 
-    height: 100px;
+.product-card {
+    max-width: 400px;
+    max-height: 400px;
+
+    &-image {
+        width: 100px; 
+        height: 100px;
+    }
 }
