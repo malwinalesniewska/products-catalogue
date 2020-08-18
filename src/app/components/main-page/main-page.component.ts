@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiManagerService } from '@core/services/api-manager.service';
+import { ApiManagerService } from '@app/core';
 
 @Component({
   selector: 'app-main-page',

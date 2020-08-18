@@ -20,8 +20,8 @@
     ],
     "paths": {
       "@env": ["environments/environment"],
-      "@shared/*": ["app/shared/*"],
-      "@core/*": ["app/core/*"]
+      "@app/shared": ["app/shared"],
+      "@app/core": ["app/core"]
     }
   }
 }
