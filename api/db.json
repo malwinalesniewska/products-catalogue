@@ -2,45 +2,73 @@
   "products": [
     {
       "id": 1,
-      "name": "Lorem ipsum",
+      "name": "Laptop HP",
       "prices": ["1500", "1700", "2000"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
       "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
     },
     {
       "id": 2,
-      "name": "Ut sodales",
+      "name": "Samsung S10",
       "prices": ["2000", "2200"],
       "description": "Pellentesque nec augue eu nunc viverra imperdiet. Pellentesque ultricies purus.",
-      "image": "https://images.morele.net/full/6358353_0_f.jpg"
+      "image": "https://a.allegroimg.com/s128/11582c/3e06ff614b849f84ba78194d51d2/SAMSUNG-GALAXY-S10-8GB-128GB-AMOLED-3400mAh"
     },
     {
       "id": 3,
-      "name": "Diam at",
-      "prices": ["1500", "1700", "2000"],
+      "name": "Laptop Dell",
+      "prices": ["1600", "1700", "2000"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
-      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
+      "image": "https://images.morele.net/i256/1100925_0_i256.jpeg"
     },
     {
       "id": 4,
-      "name": "Odio hendrerit",
-      "prices": ["1500", "1700", "2000"],
+      "name": "Laptop Asus",
+      "prices": ["1800", "1700", "2000"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
-      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
+      "image": "https://image.ceneostatic.pl/data/products/37512208/i-asus-pu301la-ro187g.jpg"
     },
     {
       "id": 5,
-      "name": "Fermentum",
+      "name": "MacBook Pro",
       "prices": ["1500", "1700", "2000"],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
-      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel",
+      "image": "https://d.allegroimg.com/s128/03e109/f2acdec741eba884589c22c3602d/2015-11cal-Thunder-Apple-MacBook-Air-i5-1-6-2-7Ghz"
     },
     {
       "id": 6,
-      "name": "Vivamus facilisis lacus",
-      "prices": ["1500", "1700", "2000"],
+      "name": "Xiaomi Mi9",
+      "prices": ["1999", "1700", "2000"],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
-      "image": "https://f01.esfr.pl/foto/6/56967111137/f65fa47f1415f1755f08e67a7e35ed45/huawei-laptop-d14-14-r5-8gb-512ssd-w10,56967111137_7.jpg"
+      "image": "https://a.allegroimg.com/s128/0384db/5b13997447569186a6547e3bcbbf/Xiaomi-Mi-9T-Redmi-K20-6-128-GB-Niebieski"
+    },
+{
+      "id": 7,
+      "name": "Galaxy A10",
+      "prices": ["999", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://images.morele.net/full/6358353_0_f.jpg"
+    },
+{
+      "id": 8,
+      "name": "iPhone 7",
+      "prices": ["1200", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://i0.wp.com/fixitlolwow.com/wp-content/uploads/2019/01/tg.jpg?fit=256%2C256&ssl=1"
+    },
+{
+      "id": 9,
+      "name": "iPhone 8",
+      "prices": ["1900", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://a.allegroimg.com/s128/11c65d/bc4939a64f6a89f7f6b775b44e4b/Smartfon-Apple-iPhone-8-64GB-Gold-Zloty"
+    },
+{
+      "id": 10,
+      "name": "Galaxy A6",
+      "prices": ["1399", "1700", "2000"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
+      "image": "https://a.allegroimg.com/s128/115d83/5677ed454c35af0911cbfe701f66/SAMSUNG-Galaxy-A10-SM-A105F-czarny"
     }
   ]
 }

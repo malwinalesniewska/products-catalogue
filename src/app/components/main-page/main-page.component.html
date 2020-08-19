@@ -1,21 +1,15 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm sticky-top">
     <h5 class="my-0 mr-md-auto font-weight-normal">Katalog produktów</h5>
     <div class="text-center">
-        <app-button [text]="'User'"></app-button>
-        <app-button [text]="'Admin'"></app-button>
+        <app-button [text]="'User'" (click)="onSetRole('user')"></app-button>
+        <app-button [text]="'Admin'" (click)="onSetRole('admin')"></app-button>
     </div>
-    <!-- <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="#">O nas</a>
-      <a class="p-2 text-dark" href="#">Kontakt</a>
-      <a class="p-2 text-dark" href="#">Koszty wysyłki</a>
-    </nav>
-    <a class="btn btn-outline-primary" href="#">Zaloguj się</a> -->
-</div>
+</nav>
 <div class="container">
-<div class="d-flex flex-wrap text-center">
-    <app-product 
-        *ngFor="let product of products" 
-        [singleProduct]="product">
-    </app-product>
-</div>
+    <div class="d-flex flex-wrap text-center">
+        <app-product 
+            *ngFor="let product of products" 
+            [singleProduct]="product">
+        </app-product>
+    </div>
 </div>

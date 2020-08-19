@@ -7,6 +7,7 @@ import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ProductComponent } from './components/product/product.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { ProductComponent } from './components/product/product.component';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
