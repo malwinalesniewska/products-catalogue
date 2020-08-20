@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgbActiveModal, NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { defaultPrice, ProductDto } from '@app/core';
+import { defaultPrice, ProductDto, ApiManagerService } from '@app/core';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -17,8 +17,8 @@ export class AddEditProductComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private readonly modalService: NgbModal,
-    private readonly formBuilder: FormBuilder
+    private readonly formBuilder: FormBuilder,
+    private readonly apiService: ApiManagerService
   ) { }
 
   /**
@@ -27,6 +27,7 @@ export class AddEditProductComponent implements OnInit {
   get isEditing(): boolean { return null != this.parentData.product; }
 
   ngOnInit() {
+    // TODO: validate types, length etc
     this.productForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(80)]],
       price: ['', [Validators.required]],
@@ -77,13 +78,27 @@ export class AddEditProductComponent implements OnInit {
     }  
   }
 
-  updateProduct(product) {
-    product.id = this.parentData.product.id;
-    console.log(product);
+  updateProduct(product: ProductDto): void {
+  // TODO: add prices to array
+    const currentProduct = this.parentData.product;
+    product.id = currentProduct.id;
+    this.apiService.editData(product.id, product)
+      .subscribe(_ => {
+        currentProduct.addPrice(product.prices.push(currentProduct.prices));
+        currentProduct.name = product.name;
+        currentProduct.description = product.description;
+        currentProduct.image = product.image;
+        // currentProduct.prices = product.prices;
+        this.closeModal();
+      })
   }
 
   createProduct(product) {
-
+    this.apiService.postData(product)
+      .subscribe(resp => {
+        this.parentData.products.push(resp);
+        this.closeModal();
+      });
   }
   
   closeModal() {

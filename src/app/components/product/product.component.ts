@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-import { SessionStorageService, defaultPrice } from '@app/core';
+import { SessionStorageService, defaultPrice, ApiManagerService } from '@app/core';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UserRole } from '@app/shared';
 import { AddEditProductComponent } from '../add-edit-product/add-edit-product.component';
@@ -13,13 +12,16 @@ import { AddEditProductComponent } from '../add-edit-product/add-edit-product.co
 })
 export class ProductComponent implements OnInit {
   @Input() singleProduct;
+  @Output() onDeleteProduct: EventEmitter<any> = new EventEmitter<any>();
+
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
   defaultPrice = defaultPrice;
 
   constructor(
     private readonly sessionStorageService: SessionStorageService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private readonly apiService: ApiManagerService
   ) { }
 
   ngOnInit() {
@@ -27,14 +29,20 @@ export class ProductComponent implements OnInit {
   // check if it's admin view
   get isAdmin() { return this.sessionStorageService.getUserData('userRole').role === UserRole.Admin }
 
-  openModal(mode: string) {
+  openModal() {
     const modalRef = this.modalService.open(AddEditProductComponent);
 
     let data = {
-      mode: mode,
       product: this.singleProduct
     }
 
     modalRef.componentInstance.parentData = data;
+  }
+
+  onDelete() {
+    this.apiService.deleteData(this.singleProduct.id)
+      .subscribe(_ => {
+        this.onDeleteProduct.emit();
+      })
   }
 }

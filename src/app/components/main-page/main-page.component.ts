@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiManagerService } from '@app/core';
 import { SessionStorageService, ProductDto } from '@app/core';
 import { UserRole } from '@app/shared';
+import { AddEditProductComponent } from './../add-edit-product/add-edit-product.component';
 
 
 @Component({
@@ -14,11 +16,14 @@ export class MainPageComponent implements OnInit {
 
   constructor(
     private readonly apiService: ApiManagerService,
-    private readonly sessionStorageService: SessionStorageService
-  ) { 
-    //this.sessionStorageService.setItem('userRole', UserRole.User);
-  }
+    private readonly sessionStorageService: SessionStorageService,
+    private modalService: NgbModal
+  ) {}
 
+  // check if it's admin view
+  get isAdmin() { return this.sessionStorageService.getUserData('userRole').role === UserRole.Admin }
+
+  // TODO: add filters and searchbar
   ngOnInit() {
     this.getProducts();
   }
@@ -38,4 +43,14 @@ export class MainPageComponent implements OnInit {
     }
   }
 
+  openAddProductModal() {
+    const modalRef = this.modalService.open(AddEditProductComponent);
+
+    let data = {
+      product: null,
+      products: this.products
+    }
+
+    modalRef.componentInstance.parentData = data;
+  }
 }

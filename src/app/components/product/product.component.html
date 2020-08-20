@@ -1,11 +1,13 @@
-<div class="card text-center product-card m-1 shadow pt-1">
+<div class="card text-center product-card m-1 shadow pt-1 rounded">
     <div *ngIf="isAdmin" class="text-right mr-3">
         <button 
             class="btn"
-            (click)="openModal('edit')">
+            (click)="openModal()">
             <fa-icon [icon]="faEdit"></fa-icon>
         </button>
-        <button class="btn">
+        <button 
+            class="btn"
+            (click)="onDelete()">
             <fa-icon [icon]="faTrashAlt"></fa-icon>
         </button>
     </div>
