@@ -1,6 +1,8 @@
-<div class="card text-center product-card m-1 shadow pt-2">
+<div class="card text-center product-card m-1 shadow pt-1">
     <div *ngIf="isAdmin" class="text-right mr-3">
-        <button class="btn">
+        <button 
+            class="btn"
+            (click)="openModal('edit')">
             <fa-icon [icon]="faEdit"></fa-icon>
         </button>
         <button class="btn">
@@ -13,6 +15,6 @@
     <div class="card-body pt-2 overflow-auto">
         <h2 class="card-title">{{ singleProduct.name }}</h2>
         <p class="card-text">{{ singleProduct.description }}</p>
-        <p>{{ singleProduct.prices[0] }} zł</p>
+        <p>{{ singleProduct.prices[defaultPrice] }} zł</p>
     </div>
 </div>

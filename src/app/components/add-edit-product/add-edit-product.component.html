@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <h4 class="modal-title"id="modal-basic-title">
+        {{ !isEditing ? 'Dodawanie' : 'Edycja' }} produktu {{ isEditing ? parentData.product.name : '' }}
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="name">Nazwa*:</label>
+            <input
+                formControlName="name" 
+                class="form-control"
+                placeholder="Laptop"
+                [ngClass]="{ 'is-invalid': ( submitted && frm.name.errors )}"
+                ngbAutofocus>
+            <div *ngIf="submitted && frm.name.errors" class="invalid-feedback">
+                <div *ngIf="frm.name.errors.required">Nazwa jest wymagana</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Opis*:</label>
+            <input
+                formControlName="description" 
+                class="form-control"
+                placeholder="Laptop"
+                [ngClass]="{ 'is-invalid': ( submitted && frm.description.errors )}"
+                ngbAutofocus>
+            <div *ngIf="submitted && frm.description.errors" class="invalid-feedback">
+                <div *ngIf="frm.description.errors.required">Opis jest wymagany</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="price">Cena*:</label>
+            <input
+                formControlName="price" 
+                class="form-control"
+                placeholder="Laptop"
+                [ngClass]="{ 'is-invalid': ( submitted && frm.price.errors )}"
+                ngbAutofocus>
+            <div *ngIf="submitted && frm.price.errors" class="invalid-feedback">
+                <div *ngIf="frm.price.errors.required">Cena jest wymagana</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="photoSrc">Link do zdjęcia*:</label>
+            <input
+                formControlName="photoSrc" 
+                class="form-control"
+                placeholder="Laptop"
+                [ngClass]="{ 'is-invalid': ( submitted && frm.photoSrc.errors )}"
+                ngbAutofocus>
+            <div *ngIf="submitted && frm.photoSrc.errors" class="invalid-feedback">
+                <div *ngIf="frm.photoSrc.errors.required">Link jest wymagany</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+    <button type="submit" class="btn btn-outline-primary action-buttons">
+        {{ !isEditing ? 'Dodaj' : 'Uaktualnij' }}
+    </button>
+    <button 
+        type="button" 
+        class="btn btn-outline-secondary" 
+        aria-label="Cancel" 
+        (click)="closeModal()">
+        Anuluj
+    </button>
+    </div>
+</form>
