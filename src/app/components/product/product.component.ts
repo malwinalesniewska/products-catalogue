@@ -13,7 +13,7 @@ import { NotifierService } from 'angular-notifier';
 })
 export class ProductComponent implements OnInit {
   @Input() singleProduct;
-  @Output() onDeleteProduct: EventEmitter<any> = new EventEmitter<any>();
+  @Output() deleteProduct: EventEmitter<any> = new EventEmitter<any>();
 
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
@@ -44,7 +44,7 @@ export class ProductComponent implements OnInit {
   onDelete() {
     this.apiService.deleteData(this.singleProduct.id)
       .subscribe(_ => {
-        this.onDeleteProduct.emit();
+        this.deleteProduct.emit();
         this.notifier.notify('success', `Usunięto produkt ${this.singleProduct.name}`);
       });
   }

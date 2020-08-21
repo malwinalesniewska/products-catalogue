@@ -23,7 +23,6 @@ export class MainPageComponent implements OnInit {
   // check if it's admin view
   get isAdmin() { return this.sessionStorageService.getUserData('userRole').role === UserRole.Admin; }
 
-  // TODO: notifications
   ngOnInit() {
     this.getProducts();
   }

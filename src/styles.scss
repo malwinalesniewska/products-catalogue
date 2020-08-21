@@ -1,7 +1,9 @@
 @import "../node_modules/angular-notifier/styles.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap');
 
 body {
-    font-family: 'Helvetica', 'Arial', sans-serif !important;
+    font-family: 'Exo 2', 'Arial', sans-serif !important;
 }
 
 /* width */
@@ -16,7 +18,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgb(202, 197, 197);
+    background: rgb(230, 224, 224);
     border-radius: 5px;
 }
 

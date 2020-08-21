@@ -11,7 +11,7 @@ import { NotifierService } from 'angular-notifier';
   styleUrls: ['./add-edit-product.component.scss']
 })
 export class AddEditProductComponent implements OnInit {
-  @Input() parentData;  
+  @Input() parentData;
 
   productForm: FormGroup;
   productAddEditModal: NgbModalRef;
@@ -56,13 +56,13 @@ export class AddEditProductComponent implements OnInit {
       });
     } else {
       this.parentData.product = null;
-      this.productForm.reset();    
+      this.productForm.reset();
     }
   }
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
+    // stop here if form is invalid
     if (this.productForm.invalid) {
        return;
     }
@@ -92,7 +92,6 @@ export class AddEditProductComponent implements OnInit {
     product.id = currentProduct.id;
     this.apiService.editData(product.id, product)
       .subscribe(_ => {
-        // currentProduct.addPrice(product.prices.push(currentProduct.prices));
         currentProduct.name = product.name;
         currentProduct.description = product.description;
         currentProduct.image = product.image;
