@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { defaultPrice, ProductDto, ApiManagerService } from '@app/core';
+import { defaultPrice, ProductDto, ApiManagerService, PriceDtoArray } from '@app/core';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -48,7 +48,7 @@ export class AddEditProductComponent implements OnInit {
     if (null != product) {
       this.productForm.patchValue({
         name: product.name,
-        price: product.prices[defaultPrice],
+        price: product.prices[defaultPrice].value,
         description: product.description,
         photoSrc: product.image
       });
@@ -64,18 +64,24 @@ export class AddEditProductComponent implements OnInit {
     if (this.productForm.invalid) {
        return;
     }
+    let price: PriceDtoArray = [
+      {
+        id: 1,
+        value: this.productForm.value.price
+      }
+    ]
     let product: ProductDto = {
         id: null,
         name: this.productForm.value.name,
-        prices: this.productForm.value.price,
+        prices: price,
         description: this.productForm.value.description,
         image: this.productForm.value.photoSrc
     };
-    if (this.isEditing) {  
-      this.updateProduct(product);    
-    } else {      
-      this.createProduct(product);    
-    }  
+    if (this.isEditing) {
+      this.updateProduct(product);
+    } else {
+      this.createProduct(product);
+    }
   }
 
   updateProduct(product: ProductDto): void {
@@ -84,21 +90,23 @@ export class AddEditProductComponent implements OnInit {
     product.id = currentProduct.id;
     this.apiService.editData(product.id, product)
       .subscribe(_ => {
-        currentProduct.addPrice(product.prices.push(currentProduct.prices));
+        // currentProduct.addPrice(product.prices.push(currentProduct.prices));
         currentProduct.name = product.name;
         currentProduct.description = product.description;
         currentProduct.image = product.image;
-        // currentProduct.prices = product.prices;
+        currentProduct.prices = product.prices;
         this.closeModal();
+        alert(`Zaktualizowano produkt ${product.name}`);
       })
   }
 
-  createProduct(product) {
+  createProduct(product: ProductDto) {
     this.apiService.postData(product)
       .subscribe(resp => {
         this.parentData.products.push(resp);
         this.closeModal();
-      });
+        alert(`Dodano produkt ${product.name}`);
+      });      
   }
   
   closeModal() {

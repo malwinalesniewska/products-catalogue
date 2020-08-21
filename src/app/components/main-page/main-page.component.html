@@ -12,7 +12,8 @@
         (click)="openAddProductModal()">
     </app-button>
 </div>
-<div class="d-flex justify-content-center flex-wrap text-center">
+<!-- TODO: add fonts -->
+<div class="d-flex justify-content-center flex-wrap text-center mx-3">
     <app-product
         *ngFor="let product of products" 
         [singleProduct]="product"

@@ -11,10 +11,15 @@ export interface ProductDto {
   id: number;
   name: string;
   description: string;
-  prices: Array<number>;
+  prices: PriceDto[];
   image: string;
-  addPrice?(price: number): Array<number>
 }
+
+export interface PriceDto {
+  id: number;
+  value: number;
+}
+export interface PriceDtoArray extends Array<PriceDto>{}
 
 @Injectable({
   providedIn: 'root'

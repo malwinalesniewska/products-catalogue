@@ -43,6 +43,7 @@ export class ProductComponent implements OnInit {
     this.apiService.deleteData(this.singleProduct.id)
       .subscribe(_ => {
         this.onDeleteProduct.emit();
+        alert(`Usunięto produkt ${this.singleProduct.name}`);
       })
   }
 }
