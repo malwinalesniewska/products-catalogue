@@ -11,6 +11,7 @@ import { ProductComponent } from './components/product/product.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NotifierModule
   ],
   providers: [],
   bootstrap: [AppComponent],

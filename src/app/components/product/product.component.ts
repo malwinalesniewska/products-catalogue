@@ -4,6 +4,7 @@ import { SessionStorageService, defaultPrice, ApiManagerService } from '@app/cor
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { UserRole } from '@app/shared';
 import { AddEditProductComponent } from '../add-edit-product/add-edit-product.component';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-product',
@@ -21,20 +22,21 @@ export class ProductComponent implements OnInit {
   constructor(
     private readonly sessionStorageService: SessionStorageService,
     private modalService: NgbModal,
-    private readonly apiService: ApiManagerService
+    private readonly apiService: ApiManagerService,
+    private readonly notifier: NotifierService
   ) { }
 
   ngOnInit() {
   }
   // check if it's admin view
-  get isAdmin() { return this.sessionStorageService.getUserData('userRole').role === UserRole.Admin }
+  get isAdmin() { return this.sessionStorageService.getUserData('userRole').role === UserRole.Admin; }
 
   openModal() {
     const modalRef = this.modalService.open(AddEditProductComponent);
 
-    let data = {
+    const data = {
       product: this.singleProduct
-    }
+    };
 
     modalRef.componentInstance.parentData = data;
   }
@@ -43,7 +45,7 @@ export class ProductComponent implements OnInit {
     this.apiService.deleteData(this.singleProduct.id)
       .subscribe(_ => {
         this.onDeleteProduct.emit();
-        alert(`Usunięto produkt ${this.singleProduct.name}`);
-      })
+        this.notifier.notify('success', `Usunięto produkt ${this.singleProduct.name}`);
+      });
   }
 }

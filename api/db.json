@@ -126,15 +126,7 @@
       "prices": [
         {
           "id": 1,
-          "value": 1999
-        },
-        {
-          "id": 2,
-          "value": 2800
-        },
-        {
-          "id": 3,
-          "value": 2500
+          "value": "1999,99"
         }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
@@ -166,7 +158,7 @@
       "prices": [
         {
           "id": 1,
-          "value": "199"
+          "value": "1990"
         }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
@@ -190,18 +182,6 @@
         }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
-      "image": "https://a.allegroimg.com/s128/115d83/5677ed454c35af0911cbfe701f66/SAMSUNG-Galaxy-A10-SM-A105F-czarny"
-    },
-    {
-      "id": 11,
-      "name": "cscs",
-      "prices": [
-        {
-          "id": 1,
-          "value": "3999"
-        }
-      ],
-      "description": "cscas",
       "image": "https://a.allegroimg.com/s128/115d83/5677ed454c35af0911cbfe701f66/SAMSUNG-Galaxy-A10-SM-A105F-czarny"
     }
   ]

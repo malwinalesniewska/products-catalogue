@@ -5,8 +5,6 @@ import { Observable, throwError} from 'rxjs';
 
 const baseURL = '/api/products';
 
-export const defaultPrice = 0;
-
 export interface ProductDto {
   id: number;
   name: string;
@@ -19,7 +17,7 @@ export interface PriceDto {
   id: number;
   value: number;
 }
-export interface PriceDtoArray extends Array<PriceDto>{}
+export interface PriceDtoArray extends Array<PriceDto> {}
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +28,7 @@ export class ApiManagerService {
   constructor(
     private http: HttpClient
   ) {}
-  
+
   // TODO: add prices to array
   public getData(): Observable<ProductDto> {
     return this.products = this.http.get<ProductDto>(baseURL).pipe(

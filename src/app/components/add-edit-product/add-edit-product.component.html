@@ -18,6 +18,7 @@
                 ngbAutofocus>
             <div *ngIf="submitted && frm.name.errors" class="invalid-feedback">
                 <div *ngIf="frm.name.errors.required">Nazwa jest wymagana</div>
+                <div *ngIf="frm.name.errors.maxlength">Nazwa może zawierać maksymalnie 80 znaków</div>
             </div>
         </div>
         <div class="form-group">
@@ -30,6 +31,7 @@
                 ngbAutofocus>
             <div *ngIf="submitted && frm.description.errors" class="invalid-feedback">
                 <div *ngIf="frm.description.errors.required">Opis jest wymagany</div>
+                <div *ngIf="frm.description.errors.maxlength">Opis może zawierać maksymalnie 500 znaków</div>
             </div>
         </div>
         <div class="form-group">
@@ -42,6 +44,7 @@
                 ngbAutofocus>
             <div *ngIf="submitted && frm.price.errors" class="invalid-feedback">
                 <div *ngIf="frm.price.errors.required">Cena jest wymagana</div>
+                <div *ngIf="frm.price.errors.pattern">Niewłaściwy format ceny. Przykładowe ceny: 5999, 5999.00, 5999,00</div>
             </div>
         </div>
         <div class="form-group">
@@ -54,6 +57,7 @@
                 ngbAutofocus>
             <div *ngIf="submitted && frm.photoSrc.errors" class="invalid-feedback">
                 <div *ngIf="frm.photoSrc.errors.required">Link jest wymagany</div>
+                <div *ngIf="frm.photoSrc.errors.pattern">Niewsłaściwy format linku</div>
             </div>
         </div>
     </div>

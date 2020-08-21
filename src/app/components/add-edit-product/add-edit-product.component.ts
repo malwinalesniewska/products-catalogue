@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { defaultPrice, ProductDto, ApiManagerService, PriceDtoArray } from '@app/core';
+import { defaultPrice, ProductDto, ApiManagerService, PriceDtoArray, ValidationExp } from '@app/core';
+import { NotifierService } from 'angular-notifier';
+
 
 @Component({
   selector: 'app-add-edit-product',
@@ -9,7 +11,7 @@ import { defaultPrice, ProductDto, ApiManagerService, PriceDtoArray } from '@app
   styleUrls: ['./add-edit-product.component.scss']
 })
 export class AddEditProductComponent implements OnInit {
-  @Input() parentData;
+  @Input() parentData;  
 
   productForm: FormGroup;
   productAddEditModal: NgbModalRef;
@@ -18,7 +20,8 @@ export class AddEditProductComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private readonly formBuilder: FormBuilder,
-    private readonly apiService: ApiManagerService
+    private readonly apiService: ApiManagerService,
+    private readonly notifier: NotifierService
   ) { }
 
   /**
@@ -27,12 +30,11 @@ export class AddEditProductComponent implements OnInit {
   get isEditing(): boolean { return null != this.parentData.product; }
 
   ngOnInit() {
-    // TODO: validate types, length etc
     this.productForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(80)]],
-      price: ['', [Validators.required]],
+      price: ['', [Validators.required, Validators.pattern(ValidationExp.PricePattern)]],
       description: ['', [Validators.required, Validators.maxLength(500)]],
-      photoSrc: ['', [Validators.required]]
+      photoSrc: ['', [Validators.required, Validators.pattern(ValidationExp.ImgSrcPattern)]]
     });
     this.modalOpened();
   }
@@ -53,7 +55,7 @@ export class AddEditProductComponent implements OnInit {
         photoSrc: product.image
       });
     } else {
-      this.parentData.product= null;
+      this.parentData.product = null;
       this.productForm.reset();    
     }
   }
@@ -64,13 +66,13 @@ export class AddEditProductComponent implements OnInit {
     if (this.productForm.invalid) {
        return;
     }
-    let price: PriceDtoArray = [
+    const price: PriceDtoArray = [
       {
         id: 1,
         value: this.productForm.value.price
       }
-    ]
-    let product: ProductDto = {
+    ];
+    const product: ProductDto = {
         id: null,
         name: this.productForm.value.name,
         prices: price,
@@ -95,20 +97,20 @@ export class AddEditProductComponent implements OnInit {
         currentProduct.description = product.description;
         currentProduct.image = product.image;
         currentProduct.prices = product.prices;
+        this.notifier.notify('success', `Zaktualizowano produkt ${product.name}`);
         this.closeModal();
-        alert(`Zaktualizowano produkt ${product.name}`);
-      })
+      });
   }
 
   createProduct(product: ProductDto) {
     this.apiService.postData(product)
       .subscribe(resp => {
         this.parentData.products.push(resp);
+        this.notifier.notify('success', `Dodano produkt ${product.name}`);
         this.closeModal();
-        alert(`Dodano produkt ${product.name}`);
-      });      
+      });
   }
-  
+
   closeModal() {
     this.activeModal.close();
   }

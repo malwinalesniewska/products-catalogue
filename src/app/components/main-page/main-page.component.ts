@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiManagerService } from '@app/core';
 import { SessionStorageService, ProductDto } from '@app/core';
 import { UserRole } from '@app/shared';
 import { AddEditProductComponent } from './../add-edit-product/add-edit-product.component';
-
 
 @Component({
   selector: 'app-main-page',
@@ -13,6 +12,7 @@ import { AddEditProductComponent } from './../add-edit-product/add-edit-product.
 })
 export class MainPageComponent implements OnInit {
   products: ProductDto;
+  search = '';
 
   constructor(
     private readonly apiService: ApiManagerService,
@@ -21,9 +21,9 @@ export class MainPageComponent implements OnInit {
   ) {}
 
   // check if it's admin view
-  get isAdmin() { return this.sessionStorageService.getUserData('userRole').role === UserRole.Admin }
+  get isAdmin() { return this.sessionStorageService.getUserData('userRole').role === UserRole.Admin; }
 
-  // TODO: add filters and searchbar
+  // TODO: notifications
   ngOnInit() {
     this.getProducts();
   }
@@ -32,24 +32,24 @@ export class MainPageComponent implements OnInit {
     this.apiService.getData().
       subscribe(products =>
         this.products = products
-      )
+      );
   }
 
   onSetRole(role: string) {
     if (role === 'user') {
-      this.sessionStorageService.setItem('userRole', UserRole.User)
+      this.sessionStorageService.setItem('userRole', UserRole.User);
     } else {
-      this.sessionStorageService.setItem('userRole', UserRole.Admin)
+      this.sessionStorageService.setItem('userRole', UserRole.Admin);
     }
   }
 
   openAddProductModal() {
     const modalRef = this.modalService.open(AddEditProductComponent);
 
-    let data = {
+    const data = {
       product: null,
       products: this.products
-    }
+    };
 
     modalRef.componentInstance.parentData = data;
   }

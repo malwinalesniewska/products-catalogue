@@ -1,7 +1,7 @@
-<div class="card text-center product-card m-1 shadow pt-1 rounded">
+<div class="card text-center product-card m-1 shadow pt-2 rounded">
     <div *ngIf="isAdmin" class="text-right mr-3">
-        <button 
-            class="btn"
+        <button
+            class="btn p-0 m-0"
             (click)="openModal()">
             <fa-icon [icon]="faEdit"></fa-icon>
         </button>
@@ -11,7 +11,9 @@
             <fa-icon [icon]="faTrashAlt"></fa-icon>
         </button>
     </div>
-    <img class="card-img-top product-card-image mx-auto pt-2"
+    <img
+        [ngClass]="{ 'pt-2': !isAdmin }"
+        class="card-img-top product-card-image mx-auto"
         src="{{ singleProduct.image }}" 
         alt="product-image"/>
     <div class="card-body pt-2 overflow-auto">

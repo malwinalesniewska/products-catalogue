@@ -29,6 +29,6 @@ export class SessionStorageService {
     if (sessionItem !== null) {
       this.userData.role = sessionItem ? UserRole[sessionItem] : null;
     }
-    return this.userData
+    return this.userData;
   }
 }
