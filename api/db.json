@@ -7,14 +7,6 @@
         {
           "id": 1,
           "value": 1500
-        },
-        {
-          "id": 2,
-          "value": 1700
-        },
-        {
-          "id": 3,
-          "value": 2000
         }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",
@@ -27,17 +19,9 @@
         {
           "id": 1,
           "value": 1699
-        },
-        {
-          "id": 2,
-          "value": 1700
-        },
-        {
-          "id": 3,
-          "value": 2100
         }
       ],
-      "description": "Pellentesque nec augue eu nunc viverra imperdiet. Pellentesque ultricies purus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.\"",
       "image": "https://a.allegroimg.com/s128/11582c/3e06ff614b849f84ba78194d51d2/SAMSUNG-GALAXY-S10-8GB-128GB-AMOLED-3400mAh"
     },
     {
@@ -46,15 +30,7 @@
       "prices": [
         {
           "id": 1,
-          "value": 1890
-        },
-        {
-          "id": 2,
-          "value": 1600
-        },
-        {
-          "id": 3,
-          "value": 2500
+          "value": 1890.99
         }
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel.",

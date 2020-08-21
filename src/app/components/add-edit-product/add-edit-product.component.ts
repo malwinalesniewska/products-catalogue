@@ -69,7 +69,7 @@ export class AddEditProductComponent implements OnInit {
     const price: PriceDtoArray = [
       {
         id: 1,
-        value: parseFloat(this.productForm.value.price.replace(',', '.'))
+        value: parseFloat(this.productForm.value.price.toString().replace(',', '.'))
       }
     ];
     const product: ProductDto = {
