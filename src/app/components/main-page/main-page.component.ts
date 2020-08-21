@@ -44,12 +44,10 @@ export class MainPageComponent implements OnInit {
 
   openAddProductModal() {
     const modalRef = this.modalService.open(AddEditProductComponent);
-
     const data = {
       product: null,
       products: this.products
     };
-
     modalRef.componentInstance.parentData = data;
   }
 }

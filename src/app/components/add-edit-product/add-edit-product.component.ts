@@ -69,7 +69,7 @@ export class AddEditProductComponent implements OnInit {
     const price: PriceDtoArray = [
       {
         id: 1,
-        value: this.productForm.value.price
+        value: parseFloat(this.productForm.value.price.replace(',', '.'))
       }
     ];
     const product: ProductDto = {
@@ -87,7 +87,6 @@ export class AddEditProductComponent implements OnInit {
   }
 
   updateProduct(product: ProductDto): void {
-  // TODO: add prices to array
     const currentProduct = this.parentData.product;
     product.id = currentProduct.id;
     this.apiService.editData(product.id, product)

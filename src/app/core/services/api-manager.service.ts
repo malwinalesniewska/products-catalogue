@@ -18,6 +18,7 @@ export interface PriceDto {
   value: number;
 }
 export interface PriceDtoArray extends Array<PriceDto> {}
+export interface ProductDtoArray extends Array<ProductDto> {}
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,6 @@ export class ApiManagerService {
     private http: HttpClient
   ) {}
 
-  // TODO: add prices to array
   public getData(): Observable<ProductDto> {
     return this.products = this.http.get<ProductDto>(baseURL).pipe(
       catchError(this.handleError)
